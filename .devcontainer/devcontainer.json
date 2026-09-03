@@ -1,0 +1,33 @@
+{
+  "name": "jupyter-python",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "jovyan",
+  "workspaceFolder": "/workspaces/Simulation",
+  "forwardPorts": [8888],
+  "portsAttributes": {
+    "8888": {
+      "label": "JupyterLab",
+      "protocol": "http",
+      "onAutoForward": "notify"
+    }
+  },
+  "mounts": [
+    "source=jupyter-python-pip-cache,target=/home/jovyan/.cache/pip,type=volume"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/opt/conda/bin/python"
+      }
+    }
+  },
+  "postCreateCommand": "python -c \"import numpy, pandas, matplotlib; print('Dependencias OK')\"",
+  "onCreateCommand": "git config --global --add safe.directory /workspaces/Simulation || true"
+}
