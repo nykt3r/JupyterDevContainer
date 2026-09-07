@@ -4,7 +4,7 @@
     "dockerfile": "Dockerfile"
   },
   "remoteUser": "jovyan",
-  "workspaceFolder": "/workspaces/Simulation",
+  "workspaceFolder": "/workspaces/JupyterDevContainer",
   "forwardPorts": [8888],
   "portsAttributes": {
     "8888": {
